@@ -3,6 +3,8 @@
 
     <string name="app_name">Twitter Tweets</string>
     <string name="login_label">Connect To Twitter</string>
+    <string name="compose">Compose New Tweet</string>
     <string name="title_activity_timeline">Home Timeline</string>
+    <string name="title_activity_compose">ComposeActivity</string>
 
 </resources>

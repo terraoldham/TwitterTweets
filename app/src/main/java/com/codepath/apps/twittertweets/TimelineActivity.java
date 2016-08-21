@@ -1,9 +1,11 @@
 package com.codepath.apps.twittertweets;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
 import android.widget.ListView;
 
 import com.codepath.apps.twittertweets.models.Tweet;
@@ -43,6 +45,11 @@ public class TimelineActivity extends AppCompatActivity {
         populateTimeline();
 
 
+    }
+
+    public void onCompose(View view) {
+        Intent intent = new Intent(getApplicationContext(), ComposeActivity.class);
+        startActivity(intent);
     }
 
     private void populateTimeline() {
