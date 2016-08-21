@@ -31,6 +31,7 @@ public class ComposeActivity extends AppCompatActivity {
         Intent intent = new Intent(ComposeActivity.this, TwitterClient.class);
         intent.putExtra("tweetText", tweetText.toString());
         startActivity(intent);
+        // upon success, delay, then back to the other activity and see post
 
     }
 

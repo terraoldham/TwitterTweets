@@ -1,4 +1,23 @@
-# RestClientTemplate
+# Twitter Tweets
+
+Mock of Twitter, using API Rest Client
+
+The following user stories must be completed:
+
+* [X] User can sign in to Twitter using OAuth login (2 points)
+* [X]User can view the tweets from their home timeline
+* [X]User should be displayed the username, name, and body for each tweet (2
+points)
+* [ ]User should be displayed the relative timestamp for each tweet "8m",
+"7h" (1 point)
+* [ ]User can view more tweets as they scroll with infinite pagination (1
+point)
+* [X] User can compose a new tweet
+* [X] User can click a “Compose” icon in the Action Bar on the top right (1
+point) - New activity started via button
+* [X] User can then enter a new tweet and post this to twitter (2 points) - Tweet can be edited; working to post the data
+* [ ] User is taken back to home timeline with new tweet visible in timeline
+(1 point)
 
 ## Overview
 
