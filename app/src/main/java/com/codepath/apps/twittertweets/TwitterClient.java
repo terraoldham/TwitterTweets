@@ -55,6 +55,7 @@ public class TwitterClient extends OAuthBaseClient {
 		//String status = bundle.getString("tweetText");
 		RequestParams params = new RequestParams();
 		params.put("status", status);
+		getClient().post(apiUrl, params, handler);
 
 
 	}
