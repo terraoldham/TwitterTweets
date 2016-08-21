@@ -1,6 +1,8 @@
 package com.codepath.apps.twittertweets;
 
+import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 
 import com.codepath.oauth.OAuthBaseClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -47,19 +49,20 @@ public class TwitterClient extends OAuthBaseClient {
 		getClient().get(apiUrl, params, handler);
 	}
 
-	/*
+
 	public void postTweet(AsyncHttpResponseHandler handler) {
 		String apiUrl = getApiUrl("statuses/update.json");
-		//String status = getActivity().getIntent().getExtras().getString("key");
+		String status = ((Activity) context).getIntent().getExtras().getString("tweetText");
+		//String status = getIntent().getExtras().getString("key");
 		//Bundle bundle = getIntent().getExtras();
 		//String status = bundle.getString("tweetText");
+		Log.d("DEBUG", status);
 		RequestParams params = new RequestParams();
 		params.put("status", status);
 		getClient().post(apiUrl, params, handler);
 
 
 	}
-	*/
 
 	/* 1. Define the endpoint URL with getApiUrl and pass a relative path to the endpoint
 	 * 	  i.e getApiUrl("statuses/home_timeline.json");

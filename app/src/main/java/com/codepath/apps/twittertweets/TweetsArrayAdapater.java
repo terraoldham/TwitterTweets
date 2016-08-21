@@ -1,6 +1,7 @@
 package com.codepath.apps.twittertweets;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,12 +34,15 @@ public class TweetsArrayAdapater extends ArrayAdapter<Tweet> {
         // find subviews to fill with data
         ImageView ivProfileImage = (ImageView) convertView.findViewById(R.id.ivProfileImage);
         TextView tvUserName = (TextView) convertView.findViewById(R.id.tvUserName);
+        TextView tvName = (TextView) convertView.findViewById(R.id.tvName);
         TextView tvBody = (TextView) convertView.findViewById(R.id.tvBody);
         // populate data into the subviews
         tvUserName.setText(tweet.getUser().getUserName());
         tvBody.setText(tweet.getBody());
+        tvName.setText(tweet.getUser().getName());
         ivProfileImage.setImageResource(android.R.color.transparent);
-        Picasso.with(getContext()).load(tweet.getUser().getProfileImageUrl());
+        Picasso.with(getContext()).load(tweet.getUser().getProfileImageUrl()).into(ivProfileImage);
+        Log.d("DEBUG", tweet.getUser().getProfileImageUrl());
         return convertView;
         // return view to be inserted into list
     }
