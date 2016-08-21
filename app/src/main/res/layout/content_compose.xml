@@ -12,4 +12,16 @@
     tools:context="com.codepath.apps.twittertweets.ComposeActivity"
     tools:showIn="@layout/activity_compose">
 
+    <TextView
+        android:id="@+id/tweet_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/onCompose"
+        android:onClick="onCompose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Post Tweet" />
+
 </RelativeLayout>
