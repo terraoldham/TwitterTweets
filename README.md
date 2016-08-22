@@ -5,12 +5,12 @@ Mock of Twitter, using API Rest Client
 The following user stories must be completed:
 
 * [X] User can sign in to Twitter using OAuth login (2 points)
-* [X]User can view the tweets from their home timeline
-* [X]User should be displayed the username, name, and body for each tweet (2
+* [X] User can view the tweets from their home timeline
+* [X] User should be displayed the username, name, and body for each tweet (2
 points)
-* [ ]User should be displayed the relative timestamp for each tweet "8m",
+* [ ] User should be displayed the relative timestamp for each tweet "8m",
 "7h" (1 point)
-* [ ]User can view more tweets as they scroll with infinite pagination (1
+* [ ] User can view more tweets as they scroll with infinite pagination (1
 point)
 * [X] User can compose a new tweet
 * [X] User can click a “Compose” icon in the Action Bar on the top right (1
