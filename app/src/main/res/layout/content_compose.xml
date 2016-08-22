@@ -16,16 +16,16 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:id="@+id/ivProfileImage"
+        android:background="@mipmap/dino_tweets"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="#ccffff"
         android:padding="5dp"
         android:layout_marginRight="5dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="User Name"
+        android:text="terradactyle"
         android:textStyle="bold"
         android:id="@+id/tvUserName"
         android:layout_alignParentTop="true"
@@ -35,7 +35,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name"
+        android:text="Terra Oldham"
         android:textStyle="italic"
         android:id="@+id/tvName"
         android:layout_toRightOf="@+id/ivProfileImage"

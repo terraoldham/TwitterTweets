@@ -40,18 +40,10 @@ public class TimelineActivity extends AppCompatActivity {
         setContentView(R.layout.activity_timeline);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        //getSupportActionBar().setDisplayShowCustomEnabled(true);
-        //getSupportActionBar().setLogo(R.drawable.camera_logo);
-        //getSupportActionBar().setDisplayUseLogoEnabled(true);
-        // find listview
         lvTweets = (ListView) findViewById(R.id.lvTweets);
-        // create array list
         tweets = new ArrayList<>();
-        // construct
         aTweets = new TweetsArrayAdapater(this, tweets);
-        // connect
         lvTweets.setAdapter(aTweets);
-        // get client
         client = TwitterApplication.getRestClient();
         swipeTwitterRefresh();
         populateTimeline();
@@ -60,7 +52,6 @@ public class TimelineActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
@@ -72,48 +63,40 @@ public class TimelineActivity extends AppCompatActivity {
 
     private void populateTimeline() {
         client.getHomeTimeline(new JsonHttpResponseHandler() {
-            //Success
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray json) {
-                //super.onSuccess(statusCode, headers, response);
                 Log.d("DEBUG", json.toString());
-                // JSON
-                // Deserialize
-                // Create models and add to adapter
-                // Load model data into list view
-                //ArrayList<Tweet> tweets = Tweet.fromJSONArray(json);
                 aTweets.addAll(Tweet.fromJSONArray(json));
-                //Log.d("DEBUG", aTweets.toString());
                 swipeContainer.setRefreshing(false);
-                //Log.d("DEBUG", "Refresh number");
             }
 
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                //super.onFailure(statusCode, headers, throwable, errorResponse);
-                //Log.d("DEBUG", errorResponse.toString());
                 swipeContainer.setRefreshing(false);
-                //Log.d("DEBUG", "Failure number");
             }
-            //Failure
         });
     }
 
     private void swipeTwitterRefresh() {
         swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
+        swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
+                android.R.color.holo_green_light,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_red_light);
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
-                        android.R.color.holo_green_light,
-                        android.R.color.holo_orange_light,
-                        android.R.color.holo_red_light);
-                //Toast.makeText(this, "Refreshing", Toast.LENGTH_SHORT).show();
-                //Log.d("DEBUG", "is this actually registering?");
-                populateTimeline();
-
+                refreshTimeline();
             }
         });
+    }
+
+    private void refreshTimeline() {
+        int numTweets = tweets.size();
+        tweets.clear();
+        aTweets.notifyDataSetChanged();
+
+        populateTimeline();
     }
 
 }
