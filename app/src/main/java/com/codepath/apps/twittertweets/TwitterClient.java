@@ -51,6 +51,7 @@ public class TwitterClient extends OAuthBaseClient {
 
 
 	public void postTweet(AsyncHttpResponseHandler handler) {
+		Log.d("DEBUG", "do we get here");
 		String apiUrl = getApiUrl("statuses/update.json");
 		String status = ((Activity) context).getIntent().getExtras().getString("tweetText");
 		//String status = getIntent().getExtras().getString("key");

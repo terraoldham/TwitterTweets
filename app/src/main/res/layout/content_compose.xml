@@ -21,7 +21,6 @@
         android:layout_marginLeft="20dp"
         android:hint="Type your Tweet here" />
 
-
     <Button
         android:id="@+id/onCompose"
         android:onClick="onCompose"

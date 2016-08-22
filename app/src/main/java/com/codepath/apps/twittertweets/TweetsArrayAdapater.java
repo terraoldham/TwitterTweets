@@ -1,7 +1,6 @@
 package com.codepath.apps.twittertweets;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,7 +41,7 @@ public class TweetsArrayAdapater extends ArrayAdapter<Tweet> {
         tvName.setText(tweet.getUser().getName());
         ivProfileImage.setImageResource(android.R.color.transparent);
         Picasso.with(getContext()).load(tweet.getUser().getProfileImageUrl()).into(ivProfileImage);
-        Log.d("DEBUG", tweet.getUser().getProfileImageUrl());
+        //Log.d("DEBUG", tweet.getUser().getProfileImageUrl());
         return convertView;
         // return view to be inserted into list
     }
