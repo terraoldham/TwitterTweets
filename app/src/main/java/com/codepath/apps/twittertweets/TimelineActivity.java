@@ -40,6 +40,9 @@ public class TimelineActivity extends AppCompatActivity {
         setContentView(R.layout.activity_timeline);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        //getSupportActionBar().setDisplayShowCustomEnabled(true);
+        //getSupportActionBar().setLogo(R.drawable.camera_logo);
+        //getSupportActionBar().setDisplayUseLogoEnabled(true);
         // find listview
         lvTweets = (ListView) findViewById(R.id.lvTweets);
         // create array list
@@ -50,8 +53,6 @@ public class TimelineActivity extends AppCompatActivity {
         lvTweets.setAdapter(aTweets);
         // get client
         client = TwitterApplication.getRestClient();
-        populateTimeline();
-
         swipeTwitterRefresh();
         populateTimeline();
 

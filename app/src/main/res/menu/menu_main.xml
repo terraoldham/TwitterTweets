@@ -4,9 +4,17 @@
         xmlns:app="http://schemas.android.com/apk/res-auto">
         <item
             android:id="@+id/miCompose"
-            android:icon="@drawable/ic_launcher"
+            android:icon="@drawable/ic_compose"
             android:onClick="onCompose"
             app:showAsAction="ifRoom"
             android:title="Compose">
         </item>
+
+        <item
+            android:id="@+id/dinoTweets"
+            android:icon="@mipmap/dino_tweets"
+            android:title="Dino Tweets">
+
+        </item>
+
 </menu>
