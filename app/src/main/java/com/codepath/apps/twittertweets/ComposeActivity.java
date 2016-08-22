@@ -1,10 +1,19 @@
 package com.codepath.apps.twittertweets;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.preference.PreferenceActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.codepath.apps.twittertweets.models.Tweet;
+import com.loopj.android.http.JsonHttpResponseHandler;
+
+import org.json.JSONObject;
 
 public class ComposeActivity extends AppCompatActivity {
 
@@ -22,6 +31,7 @@ public class ComposeActivity extends AppCompatActivity {
         client = TwitterApplication.getRestClient();
         tweetText = (EditText) findViewById(R.id.tweet_text);
         onCompose = (Button) findViewById(R.id.onCompose);
+        setupListeners();
         //onCompose.setOnClickListener((View.OnClickListener) this);
     }
 
@@ -36,6 +46,33 @@ public class ComposeActivity extends AppCompatActivity {
 
         // upon success, delay, then back to the other activity and see post
     } */
+
+    private void setupListeners() {
+        onCompose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                postTweet();
+            }
+        });
+    }
+
+    private void postTweet() {
+        final String status = tweetText.getText().toString();
+        TwitterClient twitterClient = new TwitterClient(this);
+        twitterClient.postStatus(new JsonHttpResponseHandler() {
+            public void onSuccess(int statusCode, PreferenceActivity.Header[] headers, JSONObject response) {
+                Tweet tweet = Tweet.fromJSON(response);
+                Intent intent = new Intent();
+                intent.putExtra("status", status);
+                setResult(200, intent);
+                finish();
+            }
+            public void onFailure(int statusCode, PreferenceActivity.Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                Log.d("error", errorResponse.toString());
+            }
+        }, status);
+    }
+
 
     /*
     public void onCompose() {

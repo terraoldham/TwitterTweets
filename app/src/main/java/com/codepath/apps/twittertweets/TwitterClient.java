@@ -1,6 +1,5 @@
 package com.codepath.apps.twittertweets;
 
-import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 
@@ -50,19 +49,12 @@ public class TwitterClient extends OAuthBaseClient {
 	}
 
 
-	public void postTweet(AsyncHttpResponseHandler handler) {
+	public void postStatus(AsyncHttpResponseHandler handler, String status) {
 		Log.d("DEBUG", "do we get here");
 		String apiUrl = getApiUrl("statuses/update.json");
-		String status = ((Activity) context).getIntent().getExtras().getString("tweetText");
-		//String status = getIntent().getExtras().getString("key");
-		//Bundle bundle = getIntent().getExtras();
-		//String status = bundle.getString("tweetText");
-		Log.d("DEBUG", status);
-		RequestParams params = new RequestParams();
-		params.put("status", status);
-		getClient().post(apiUrl, params, handler);
-
-
+		RequestParams requestParams = new RequestParams();
+		requestParams.put("status", status);
+		getClient().post(apiUrl, requestParams, handler);
 	}
 
 	public void getCurrentUser(AsyncHttpResponseHandler handler) {
