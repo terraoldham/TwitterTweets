@@ -10,7 +10,7 @@ The following user stories must be completed:
 points)
 * [ ] User should be displayed the relative timestamp for each tweet "8m",
 "7h" (1 point)
-* [ ]User can view more tweets as they scroll with infinite pagination (1
+* [ ] User can view more tweets as they scroll with infinite pagination (1
 point)
 * [X] User can compose a new tweet
 * [X] User can click a “Compose” icon in the Action Bar on the top right (1
