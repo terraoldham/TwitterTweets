@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.codepath.apps.twittertweets.models.Tweet;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -26,6 +27,7 @@ public class TimelineActivity extends AppCompatActivity {
     ArrayList<Tweet> tweets;
     TweetsArrayAdapater aTweets;
     ListView lvTweets;
+    private final int REQUEST_CODE = 22;
     /*     private TwitterClient client;
     private ArrayList<Tweet> tweets;
     private TweetsArrayAdapater aTweets;
@@ -58,7 +60,7 @@ public class TimelineActivity extends AppCompatActivity {
 
     public void onCompose(MenuItem mi) {
         Intent intent = new Intent(getApplicationContext(), ComposeActivity.class);
-        startActivity(intent);
+        startActivityForResult(intent, RESULT_OK);
     }
 
     private void populateTimeline() {
@@ -97,6 +99,18 @@ public class TimelineActivity extends AppCompatActivity {
         aTweets.notifyDataSetChanged();
 
         populateTimeline();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent timelineIntent) {
+        // REQUEST_CODE is defined above
+        if (resultCode == RESULT_OK) {
+            Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
+            refreshTimeline();
+            //int code = intent.getExtras().getInt("code", 0);
+            // Toast the name to display temporarily on screen
+
+        }
     }
 
 }

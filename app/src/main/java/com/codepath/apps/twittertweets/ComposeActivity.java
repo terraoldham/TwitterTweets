@@ -64,13 +64,19 @@ public class ComposeActivity extends AppCompatActivity {
                 Tweet tweet = Tweet.fromJSON(response);
                 Intent intent = new Intent();
                 intent.putExtra("status", status);
-                setResult(200, intent);
+                intent.putExtra("code", 22);
+                setResult(RESULT_OK, intent);
                 finish();
             }
             public void onFailure(int statusCode, PreferenceActivity.Header[] headers, Throwable throwable, JSONObject errorResponse) {
                 Log.d("error", errorResponse.toString());
             }
         }, status);
+
+        Intent timelineIntent = new Intent(getApplicationContext(), TimelineActivity.class);
+        startActivity(timelineIntent);
+        setResult(RESULT_OK, timelineIntent);
+        finish();
     }
 
 
