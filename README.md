@@ -15,7 +15,7 @@ point)
 * [X] User can compose a new tweet
 * [X] User can click a “Compose” icon in the Action Bar on the top right (1
 point)
-* [X] User can then enter a new tweet and post this to twitter (2 points) - Tweet can be edited; working to post the data
+* [X] User can then enter a new tweet and post this to twitter (2 points)
 * [ ] User is taken back to home timeline with new tweet visible in timeline
 (1 point)
 
