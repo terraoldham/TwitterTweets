@@ -8,7 +8,7 @@ The following user stories must be completed:
 * [X] User can view the tweets from their home timeline
 * [X] User should be displayed the username, name, and body for each tweet (2
 points)
-* [ ] User should be displayed the relative timestamp for each tweet "8m",
+* [X] User should be displayed the relative timestamp for each tweet "8m",
 "7h" (1 point)
 * [ ] User can view more tweets as they scroll with infinite pagination (1
 point)

@@ -12,7 +12,7 @@ import cz.msebera.android.httpclient.ParseException;
  */
 public class ParseRelativeDate {
     // getRelativeTimeAgo("Mon Apr 01 21:16:23 +0000 2014");
-    public String getRelativeTimeAgo(String rawJsonDate) throws java.text.ParseException {
+    public static String getRelativeTimeAgo(String rawJsonDate) throws java.text.ParseException {
         String twitterFormat = "EEE MMM dd HH:mm:ss ZZZZZ yyyy";
         SimpleDateFormat sf = new SimpleDateFormat(twitterFormat, Locale.ENGLISH);
         sf.setLenient(true);

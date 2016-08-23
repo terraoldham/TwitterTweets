@@ -8,8 +8,6 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -53,19 +51,17 @@ public class TimelineActivity extends AppCompatActivity {
         swipeTwitterRefresh();
         populateTimeline();
 
-        lvTweets.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        /* lvTweets.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // create intents
                 Intent intent = new Intent(getApplicationContext(), DetailActivity.class);
-                // get article
-                //Tweet tweet = tweets.get(position);
-                // pass article
-                //intent.putExtra("tweet", );
-                // display article
+                Tweet tweet =
+                Tweet tweet = (Tweet) lvTweets.getItemAtPosition(position);
+                intent.putExtra("tweet", (Parcelable) tweet);
                 startActivity(intent);
             }
         });
+        */
 
     }
 

@@ -13,7 +13,9 @@ public class DetailActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
+        /*tweet = intent.getExtras().getParcelable(
+                TimelineActivityActivity.Tweet);
+                */
     }
 
 }
