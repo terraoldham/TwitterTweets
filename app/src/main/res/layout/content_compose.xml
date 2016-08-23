@@ -13,8 +13,8 @@
     tools:showIn="@layout/activity_compose">
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:id="@+id/ivProfileImage"
         android:background="@mipmap/dino_tweets"
         android:layout_alignParentLeft="true"
@@ -23,7 +23,7 @@
         android:layout_marginRight="5dp" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="terradactyle"
         android:textStyle="bold"
@@ -44,9 +44,12 @@
 
     <EditText
         android:layout_width="wrap_content"
+        android:textColor="#00aced"
         android:layout_height="wrap_content"
         android:id="@+id/tweet_text"
+        android:background="@android:color/transparent"
         android:lines="3"
+        android:textSize="10dp"
         android:layout_below="@id/tvName"
         android:layout_toRightOf="@+id/ivProfileImage"
         android:layout_toEndOf="@+id/ivProfileImage"
@@ -55,9 +58,12 @@
     <Button
         android:id="@+id/onCompose"
         android:onClick="onCompose"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Post Tweet"
-        android:layout_below="@id/tweet_text"/>
+        android:layout_width="70dp"
+        android:layout_alignParentRight="true"
+        android:layout_height="30dp"
+        android:text="Tweet"
+        android:layout_below="@id/tweet_text"
+        android:background="#00aced"
+        android:textColor="#FFFFFF"/>
 
 </RelativeLayout>
