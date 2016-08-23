@@ -13,14 +13,35 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-/**
- * Created by toldham on 8/19/16.
- */
 public class TweetsArrayAdapater extends ArrayAdapter<Tweet> {
     public TweetsArrayAdapater(Context context, List<Tweet> tweets) {
         //super(context, android.R.layout.simple_list_item_1, tweets);
         super(context, 0, tweets);
     }
+
+    /*
+    public class ParseRelativeDate {
+        // getRelativeTimeAgo("Mon Apr 01 21:16:23 +0000 2014");
+        public String getRelativeTimeAgo(String rawJsonDate) throws java.text.ParseException {
+            String twitterFormat = "EEE MMM dd HH:mm:ss ZZZZZ yyyy";
+            SimpleDateFormat sf = new SimpleDateFormat(twitterFormat, Locale.ENGLISH);
+            sf.setLenient(true);
+
+            String relativeDate = "";
+            try {
+                long dateMillis = sf.parse(rawJsonDate).getTime();
+                relativeDate = DateUtils.getRelativeTimeSpanString(dateMillis,
+                        System.currentTimeMillis(), DateUtils.SECOND_IN_MILLIS).toString();
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            return relativeDate;
+        }
+
+        //Twitter date format Fri Apr 09 12:53:54 +0000 2010
+    }
+    */
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -35,10 +56,12 @@ public class TweetsArrayAdapater extends ArrayAdapter<Tweet> {
         TextView tvUserName = (TextView) convertView.findViewById(R.id.tvUserName);
         TextView tvName = (TextView) convertView.findViewById(R.id.tvName);
         TextView tvBody = (TextView) convertView.findViewById(R.id.tvBody);
+        //TextView tvRelativeTime = (TextView) convertView.findViewById(R.id.tvRelativeTime);
         // populate data into the subviews
         tvUserName.setText(tweet.getUser().getUserName());
         tvBody.setText(tweet.getBody());
         tvName.setText(tweet.getUser().getName());
+        //tvRelativeTime.setText(ParseRelativeDate.getRelativeTimeAgo(tweet.getCreatedAt()));
         ivProfileImage.setImageResource(android.R.color.transparent);
         Picasso.with(getContext()).load(tweet.getUser().getProfileImageUrl()).into(ivProfileImage);
         //Log.d("DEBUG", tweet.getUser().getProfileImageUrl());

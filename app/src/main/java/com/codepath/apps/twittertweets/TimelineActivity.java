@@ -8,6 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -42,6 +44,7 @@ public class TimelineActivity extends AppCompatActivity {
         setContentView(R.layout.activity_timeline);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         lvTweets = (ListView) findViewById(R.id.lvTweets);
         tweets = new ArrayList<>();
         aTweets = new TweetsArrayAdapater(this, tweets);
@@ -50,7 +53,22 @@ public class TimelineActivity extends AppCompatActivity {
         swipeTwitterRefresh();
         populateTimeline();
 
+        lvTweets.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // create intents
+                Intent intent = new Intent(getApplicationContext(), DetailActivity.class);
+                // get article
+                //Tweet tweet = tweets.get(position);
+                // pass article
+                //intent.putExtra("tweet", );
+                // display article
+                startActivity(intent);
+            }
+        });
+
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -112,5 +130,6 @@ public class TimelineActivity extends AppCompatActivity {
 
         }
     }
+
 
 }

@@ -1,5 +1,7 @@
 package com.codepath.apps.twittertweets.models;
 
+import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -358,6 +360,7 @@ public class Tweet {
     private long uid;
     private User user;
     private String createdAt;
+    private String relativeCreatedAt;
 
     public String getBody() {
         return body;
@@ -382,6 +385,7 @@ public class Tweet {
             tweet.body = jsonObject.getString("text");
             tweet.uid = jsonObject.getLong("id");
             tweet.createdAt = jsonObject.getString("created_at");
+            Log.d("DEBUG", tweet.createdAt);
             tweet.user = User.fromJSON(jsonObject.getJSONObject("user"));
 
         } catch (JSONException e) {
